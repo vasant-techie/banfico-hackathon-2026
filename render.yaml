@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: finlight-server
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: BANK_DOMAIN
+        value: obiebank-sbx.banfico.io
+      - key: BANK_TENANT
+        value: provider
+      - key: BANK_CLIENT_ID
+        value: corebank-spa
+      - key: BANK_CLIENT_SECRET
+        sync: false
+      - key: CORS_ORIGIN
+        value: https://bankoninnovation.dev
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-sonnet-4-6
